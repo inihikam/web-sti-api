@@ -7,7 +7,7 @@ import (
 )
 
 func GetTaAnnounce() ([]models.TaAnnounce, error) {
-	resp, err := http.Get("http://127.0.0.1:8000/api/pengumuman")
+	resp, err := http.Get("https://bimbingan-online.inihikam.my.id/api/pengumuman")
 	if err != nil {
 		return nil, err
 	}
