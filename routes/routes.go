@@ -16,5 +16,10 @@ func SetupRouter() *gin.Engine {
 		ta.GET("/pengumuman", controllers.GetTaAnnouncements)
 	}
 
+	alumni := r.Group("/api/alumni")
+	{
+		alumni.GET("/pengumuman", controllers.GetAlumniAnnouncements)
+	}
+
 	return r
 }
