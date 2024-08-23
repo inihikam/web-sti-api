@@ -26,5 +26,10 @@ func SetupRouter() *gin.Engine {
 		bk.GET("/pengumuman", controllers.GetBkAnnouncements)
 	}
 
+	kp := r.Group("/api/kp")
+	{
+		kp.GET("/pengumuman", controllers.GetKpAnnouncements)
+	}
+
 	return r
 }
