@@ -55,3 +55,43 @@ func (s *AnnouncementService) GetAnnouncementDetail(id string) (models.Announcem
 
     return announcement, nil
 }
+
+func (s *AnnouncementService) GetLogang() ([]models.Logang, error) {
+	resp, err := http.Get(fmt.Sprintf("%s/pengumumanLogang", s.baseURL))
+	if err != nil {
+		return nil, fmt.Errorf("failed to get logang: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("API returned non-200 status: %d", resp.StatusCode)
+	}
+
+	var logang []models.Logang
+	err = json.NewDecoder(resp.Body).Decode(&logang)
+	if err != nil {
+		return nil, fmt.Errorf("failed to decode response: %v", err)
+	}
+
+	return logang, nil
+}
+
+func (s *AnnouncementService) GetLogangDetail(id string) (models.Logang, error) {
+	resp, err := http.Get(fmt.Sprintf("%s/pengumumanLogang/%s", s.baseURL, id))
+	if err != nil {
+		return models.Logang{}, fmt.Errorf("failed to fetch logang detail: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return models.Logang{}, fmt.Errorf("API returned non-200 status: %d", resp.StatusCode)
+	}
+
+	var logang models.Logang
+	err = json.NewDecoder(resp.Body).Decode(&logang)
+	if err != nil {
+		return models.Logang{}, fmt.Errorf("failed to decode logang detail: %v", err)
+	}
+
+	return logang, nil
+}

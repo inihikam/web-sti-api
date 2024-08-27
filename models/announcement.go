@@ -37,3 +37,10 @@ type Announcement struct {
 	Konten       string `json:"konten"`
 	Published_at CustomTime `json:"published_at"`
 }
+
+type Logang struct {
+    ID uint `json:"id"`
+    NamaPerusahaan string `json:"NamaPerusahaan"`
+    Posisi string `json:"Posisi"`
+    Deskripsi string `json:"Deskripsi"`
+}

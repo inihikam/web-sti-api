@@ -30,6 +30,8 @@ func SetupRouter(config *config.Config) *gin.Engine {
 	{
 		alumni.GET("/pengumuman", alumniController.GetAnnouncements)
 		alumni.GET("/pengumuman/:id", alumniController.GetAnnouncementDetail)
+		alumni.GET("/pengumumanLogang", alumniController.GetLogang)
+		alumni.GET("/pengumumanLogang/:id", alumniController.GetLogangDetail)
 	}
 
 	bkService := services.NewAnnouncementService(config.BkBaseURL)

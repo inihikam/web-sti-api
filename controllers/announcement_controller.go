@@ -35,3 +35,24 @@ func (ac *AnnouncementController) GetAnnouncementDetail(c *gin.Context) {
 	
     c.JSON(http.StatusOK, announcement)
 }
+
+func (ac *AnnouncementController) GetLogang(c *gin.Context) {
+    logang, err := ac.service.GetLogang()
+    if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+        return
+    }
+
+    c.JSON(http.StatusOK, logang)
+}
+
+func (ac *AnnouncementController) GetLogangDetail(c *gin.Context) {
+    id := c.Param("id")
+    logang, err := ac.service.GetLogangDetail(id)
+    if err != nil {
+        c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+        return
+    }
+
+    c.JSON(http.StatusOK, logang)
+}
