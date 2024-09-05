@@ -52,5 +52,7 @@ func SetupRouter(config *config.Config) *gin.Engine {
 		kp.GET("/pengumuman/:id", kpController.GetAnnouncementDetail)
 	}
 
+	r.GET("/api/dosen", controllers.GetLecturers)
+
 	return r
 }

@@ -95,3 +95,4 @@ func (s *AnnouncementService) GetLogangDetail(id string) (models.Logang, error) 
 
 	return logang, nil
 }
+
