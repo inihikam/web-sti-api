@@ -18,10 +18,10 @@ type Config struct {
 
 func LoadConfig() *Config {
 	return &Config{
-		TaBaseURL: getEnv("TA_BASE_URL", "https://bimbingan-online.inihikam.my.id/api"),
+		TaBaseURL: getEnv("TA_BASE_URL", "https://sti.dinus.ac.id/TA/api"),
 		AlumniBaseURL: getEnv("ALUMNI_BASE_URL", "https://alumni-sti.inihikam.my.id/api"),
-		BkBaseURL: getEnv("BK_BASE_URL", "https://bimbingan-karir.inihikam.my.id/api"),
-		KpBaseURL: getEnv("KP_BASE_URL", "https://kp-sti.inihikam.my.id/api"),
+		BkBaseURL: getEnv("BK_BASE_URL", "https://sti.dinus.ac.id/BK/api"),
+		KpBaseURL: getEnv("KP_BASE_URL", "https://sti.dinus.ac.id/KP/api"),
 	}
 }
 
